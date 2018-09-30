@@ -5,6 +5,7 @@
       {{task.desc}}
     </li>
     <input v-model="newTask" v-on:keyup.13="addTask(newTask)" />
+    <button v-on:click="addTask(newTask)">Add Task</button>
   </div>
 </template>
 
