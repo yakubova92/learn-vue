@@ -1,7 +1,9 @@
 <template>
   <div>
     <h1>Do all the things!</h1>
-    <li v-for="task in TaskStore.taskList">{{task}}</li>
+    <li v-for="task in TaskStore.taskList" :key="task.id">
+      {{task.desc}}
+    </li>
     <input v-model="newTask" v-on:keyup.13="addTask(newTask)" />
   </div>
 </template>
@@ -10,15 +12,14 @@
 import TaskStore from "../stores/TaskStore"
 export default {
   data() {
-    console.log('TaskStore', TaskStore)
     return {
       newTask: null,
       TaskStore: TaskStore.data,
     };
   },
   methods: {
-    addTask(task) {
-      TaskStore.methods.addTask(task)
+    addTask(desc) {
+      TaskStore.methods.addTask(desc)
       this.newTask = null;
     }
   }
