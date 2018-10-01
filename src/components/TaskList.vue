@@ -20,9 +20,13 @@ export default {
   },
   methods: {
     addTask(desc) {
-      TaskStore.methods.addTask(desc)
+      TaskStore.methods.addTask(desc);
       this.newTask = null;
     }
   }
 }
 </script>
+
+<style scoped>
+
+</style>
